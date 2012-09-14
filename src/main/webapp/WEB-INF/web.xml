@@ -4,6 +4,8 @@
          http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     
     
+    
+    
     <context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>WEB-INF/application.xml</param-value>

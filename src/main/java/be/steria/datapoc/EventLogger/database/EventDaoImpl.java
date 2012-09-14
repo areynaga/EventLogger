@@ -34,13 +34,13 @@ public class EventDaoImpl implements EventDao {
 		
 		if (initDate == null || endDate == null) {
 			qry = entityManager.createQuery("select o from NodeEventReg o where " + 
-					"o.nodeId = :nodeId");
+					"(o.nodeId = :nodeId or :nodeId = '%')");
 			qry.setParameter("nodeId", nodeId);
 		}
 			
 		else {
 			qry = entityManager.createQuery("select o from NodeEventReg o where " + 
-					"o.nodeId = :nodeId and o.date between :initDate and :endDate");
+					"(o.nodeId = :nodeId or :nodeId = '%') and o.date between :initDate and :endDate");
 			qry.setParameter("nodeId", nodeId);
 			qry.setParameter("initDate", initDate);
 			qry.setParameter("endDate", endDate);
